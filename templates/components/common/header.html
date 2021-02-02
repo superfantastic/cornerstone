@@ -1,60 +1,33 @@
 <a href="#main-content" class="skip-to-main-link">{{lang 'header.skip_to_main'}}</a>
-
 {{#if banners.top}}
-    <div class="banners" data-banner-location="top">
-        {{#each (limit banners.top_metadata 1)}}
-        <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
-            <div data-event-type="promotion-click">
-                {{{this.content}}}
-            </div>
+<div class="banners" data-banner-location="top">
+    {{#each (limit banners.top_metadata 1)}}
+    <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
+        <div data-event-type="promotion-click">
+            {{{this.content}}}
         </div>
-        {{/each}}
     </div>
+    {{/each}}
+</div>
 {{/if}}
+<header class="header" role="banner">
+    <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+        <span class="mobileMenu-toggleIcon">Toggle menu</span>
+    </a>
+    {{> components/common/navigation}}
 
-<header class="sf-header" role="banner">
-    <a href="{{urls.home}}" class="sf-navigation__logo"><svg width="150" viewbox="0 0 150 75"><use xlink:href="#icon-sf_logo-extract" /></svg><span class="visuallyHidden">{{lang 'header.store_name'}}</span></a>
-    
-    <button class="sf-navigation__mobileButton">
-        <span class="visuallyHidden">Show Navigation</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" id="navIcon">
-            <g id="icon_nav" fill-rule="evenodd">
-                <rect id="navBar1" width="28" height="2" x="1" y="2" />
-                <rect id="navBar2a" width="28" height="2" x="1" y="14" />
-                <rect id="navBar2b" width="28" height="2" x="1" y="14" />
-                <rect id="navBar3" width="28" height="2" x="1" y="26" />
-            </g>
-        </svg>
-    </button>
-    
-    <div class="sf-header__navigation">
-        <ul class="sf-navigation__links sf-blankList">
-            <li><a href="/shop">{{lang 'common.nav.shop'}}</a></li>
-            <li><a href="/roastery">{{lang 'common.nav.roastery'}}</a></li>
-            <li><a href="/sustainability">{{lang 'common.nav.sustainability'}}</a></li>
-        </ul>
-        <div class="sf-header__cart-login">
-            <ul class="sf-navigation__cart-login sf-blankList">
-                <li class="sf-navigation__login">
-                    {{#if customer}}
-                        <a href="{{urls.account.index}}" aria-label="{{lang 'common.account'}}">{{lang 'common.account'}}</a>
-                        <a href="{{urls.auth.logout}}" aria-label="{{lang 'common.logout'}}">{{lang 'common.logout'}}</a>
-                    {{else}}
-                        <a href="{{urls.auth.login}}" aria-label="{{lang 'common.login'}}">{{lang 'common.login'}}</a>
-                        
-                        {{#if settings.account_creation_enabled}}
-                            <a href="{{urls.auth.create_account}}" aria-label="{{lang 'common.sign_up'}}">{{lang 'common.sign_up'}}</a>
-                        {{/if}}
-                    {{/if}}
-                </li>
-                <li class="sf-navigation__cart">
-                    <a class="sf-navigation__cart-shape" data-cart-preview data-dropdown="cart-preview-dropdown" data-options="align:right" href="{{urls.cart}}" aria-label="{{lang 'cart.nav_aria_label'}}">
-                        <span class="cart-quantity"></span>
-                    </a>
-                    
-                    <div class="sf-navigation__cart-dropdown dropdown-menu" id="cart-preview-dropdown" data-dropdown-content aria-hidden="true"></div>
-                </li>
-            </ul>
+    {{#if page_type '===' 'default'}}
+        <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
+            {{> components/common/store-logo}}
+        </h1>
+    {{else}}
+        <div class="header-logo header-logo--{{theme_settings.logo-position}}">
+            {{> components/common/store-logo}}
         </div>
+    {{/if}}
+    <div class="navPages-container" id="menu" data-menu>
+        {{> components/common/navigation-menu}}
     </div>
 </header>
+{{{region name="header_bottom--global"}}}
+{{{region name="header_bottom"}}}

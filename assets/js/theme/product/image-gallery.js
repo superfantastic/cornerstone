@@ -1,5 +1,4 @@
 import 'easyzoom';
-import _ from 'lodash';
 
 export default class ImageGallery {
     constructor($gallery) {
@@ -15,7 +14,7 @@ export default class ImageGallery {
     }
 
     setMainImage(imgObj) {
-        this.currentImage = _.clone(imgObj);
+        this.currentImage = { ...imgObj };
 
         this.setActiveThumb();
         this.swapMainImage();
@@ -79,7 +78,7 @@ export default class ImageGallery {
 
         if (isBrowserIE) {
             const fallbackStylesIE = {
-                'background-image': `url(${this.currentImage.mainImageUrl}&ampimbypass=on)`,
+                'background-image': `url(${this.currentImage.mainImageUrl})`,
                 'background-position': 'center',
                 'background-repeat': 'no-repeat',
                 'background-origin': 'content-box',
@@ -91,10 +90,14 @@ export default class ImageGallery {
     }
 
     checkImage() {
-        const containerHeight = $('.productView-image').height();
-        const containerWidth = $('.productView-image').width();
-        const height = this.easyzoom.data('easyZoom').$zoom.context.height;
-        const width = this.easyzoom.data('easyZoom').$zoom.context.width;
+        const $imageContainer = $('.productView-image');
+        const containerHeight = $imageContainer.height();
+        const containerWidth = $imageContainer.width();
+
+        const $image = this.easyzoom.data('easyZoom').$zoom;
+        const height = $image.height();
+        const width = $image.width();
+
         if (height < containerHeight || width < containerWidth) {
             this.easyzoom.data('easyZoom').hide();
         }

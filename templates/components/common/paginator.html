@@ -1,35 +1,50 @@
 <nav class="pagination" aria-label="pagination">
-    <ul class="sf-pagination sf-blankList">
+    <ul class="pagination-list">
         {{#if previous}}
-            <li class="pagination-item--previous">
-                <a class="sf-pagination__link"
+            <li class="pagination-item pagination-item--previous">
+                <a class="pagination-link"
                    href="{{previous}}"
                    {{#unless reload}}data-faceted-search-facet{{/unless}}
-                   aria-label="{{lang 'common.previous'}}">
-                    <i class="icon" aria-hidden="true"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-sf_pagination-arrow-left"></use></svg></i>
-                    <span class="visuallyHidden">{{lang 'common.previous'}}</span>
+                   aria-label="{{lang 'common.previous'}}"
+                >
+                    <i class="icon" aria-hidden="true">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-left"></use>
+                        </svg>
+                    </i>
+                    {{lang 'common.previous'}}
                 </a>
             </li>
         {{/if}}
         {{#each links}}
-            <li class="{{#if this.number '==' ../current}}pagination-item--current{{/if}}">
-                <a class="sf-pagination__link"
+            <li class="pagination-item {{#if this.number '==' ../current}}pagination-item--current{{/if}}">
+                <a class="pagination-link"
                    href="{{this.url}}"
                    {{#unless reload}}data-faceted-search-facet{{/unless}}
-                   {{#if this.number '==' ../current}}aria-current="page"{{/if}}
-                   aria-label="{{lang 'common.paginator.page_of' current=this.number total=../links.length}}">
+                   {{#if this.number '==' ../current}}
+                   aria-current="page"
+                   data-pagination-current-page-link
+                   {{/if}}
+                   aria-label="{{lang 'common.paginator.page_of' current=this.number total=../links.length}}"
+                >
                     {{this.number}}
                 </a>
             </li>
         {{/each}}
+
         {{#if next}}
-            <li class="pagination-item--next">
-                <a class="sf-pagination__link"
+            <li class="pagination-item pagination-item--next">
+                <a class="pagination-link"
                    href="{{next}}"
                    {{#unless reload}}data-faceted-search-facet{{/unless}}
-                   aria-label="{{lang 'common.next'}}">
-                    <span class="visuallyHidden">{{lang 'common.next'}}</span>
-                    <i class="icon" aria-hidden="true"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-sf_pagination-arrow-right"></use></svg></i>
+                   aria-label="{{lang 'common.next'}}"
+                >
+                    {{lang 'common.next'}}
+                    <i class="icon" aria-hidden="true">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-right"></use>
+                        </svg>
+                    </i>
                 </a>
             </li>
         {{/if}}
