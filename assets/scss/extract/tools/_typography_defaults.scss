@@ -1,0 +1,148 @@
+// SF - Typography Defaults
+// -----------------------------------------------------------------------------
+
+.sf-blogPost__body,
+.productView-description
+{
+    h2,h3,h4,h5,h6
+    {
+        margin-top: 6rem;
+        margin-bottom: 1rem;
+        text-transform: none;
+
+        &.reduced-margins
+        {
+            margin-top: 3rem;
+        }
+
+        &.text__transform-uppercase
+        {
+            text-transform: uppercase;
+        }
+    }
+
+    h2, .h2
+    {
+        font-size: 8rem;
+    }
+
+    h3, .h3
+    {
+        font-size: 5.6rem;
+    }
+
+    h4, .h4
+    {
+        font-size: 4rem;
+    }
+
+    h5, .h5
+    {
+        font-size: 2.8rem;
+    }
+
+    h6, .h6
+    {
+        font-size: 2rem;
+    }
+
+    p
+    {
+        margin-bottom: 2.5rem;
+
+        &.smallest
+        {
+            font-size: 1rem;
+        }
+
+        &.smaller
+        {
+            font-size: 1.4rem;
+        }
+
+        &.larger
+        {
+            font-size: 2rem;
+        }
+
+        &.largest
+        {
+            font-size: 2.8rem;
+        }
+
+        &:first-child
+        {
+            font-size: 2rem;
+        }
+    }
+
+    blockquote
+    {
+        position: relative;
+        margin: 6rem 0;
+        padding: 4rem 2rem;
+        text-align: center;
+        border: 5px solid stencilColor("color-black");
+
+        p
+        {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.1rem;
+
+            strong
+            {
+                display: block;
+                margin: 0;
+                font-size: 1.3rem;
+                font-weight: 300;
+                letter-spacing: 0.5rem;
+                text-transform: uppercase;
+            }
+
+            &:last-child
+            {
+                margin-bottom: 0;
+            }
+        }
+
+        &::after
+        {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            display: block;
+            content: '';
+            width: 77px;
+            height: 65px;
+            transform: translateX(-50%);
+            background: transparent url(../img/sf_quotemarks.svg) no-repeat;
+        }
+    }
+
+    hr
+    {
+        border-top-width: 4px;
+        border-top-style: dotted;
+        border-top-color: stencilColor("color-black");
+        border-image: url(../img/sf_separator-dotted-frame-small.svg) 4 round;
+    }
+
+    .button
+    {
+        padding: 1.65rem 2rem;
+        font-size: 1.8rem;
+        color: white;
+        border-color: stencilColor("color-black");
+        background-color: stencilColor("color-black");
+        
+        &:hover,
+        &:active
+        {
+            color: white;
+            border-color: stencilColor("color-sf-warmGrey");
+            background-color: stencilColor("color-sf-warmGrey");
+        }
+    }
+}

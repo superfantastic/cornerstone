@@ -1,0 +1,147 @@
+// Overrides
+// -----------------------------------------------------------------------------
+
+.actionBar::before,
+.actionBar::after,
+.actionBar-section::before,
+.actionBar-section::after
+{
+    display: none;
+}
+
+
+
+// SF - Product Navigation
+// -----------------------------------------------------------------------------
+
+.sf-productNavigation
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    
+    @include breakpoint("medium") {
+        align-items: center;
+    }
+}
+
+.sf-productNavigation__links
+{
+    display: flex;
+    flex-direction: column;
+    margin-right: 2rem;
+    
+    @include breakpoint("medium") {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-right: 0;
+        
+        li
+        {
+            margin-right: 2vw;
+            
+            &:last-child
+            {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.sf-productNavigation__additional
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+    @include breakpoint("medium") {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        
+        li
+        {
+            margin-left: 2vw;
+            
+            &:first-child
+            {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+
+
+// SF - Product Sorting
+// -----------------------------------------------------------------------------
+
+.sf-productNavigation__sort
+{
+    margin-bottom: 2rem;
+    
+    @include breakpoint("medium") {
+        margin-bottom: 0;
+    }
+    
+    .actionBar
+    {
+        margin: 0;
+        
+        .actionBar-section
+        {
+            float: none;
+            
+            .form-field
+            {
+                display: flex;
+                padding: 0.5rem 1rem;
+                border: 3px solid stencilColor("color-black");
+                border-radius: 3px;
+                
+                &:hover,
+                &:focus
+                {
+                    border-color: stencilColor("color-sf-warmGrey");
+                }
+            }
+            
+            .form-label
+            {
+                display: none;
+                margin: 0;
+                margin-right: 1rem;
+                padding: 0;
+                
+                @include breakpoint("medium") {
+                    display: block;
+                }
+            }
+            
+            .form-select
+            {
+                padding: 0;
+                padding-right: 18px;
+                width: auto;
+                height: auto;
+                max-width: inherit;
+                font-size: 1.5rem;
+                font-weight: 500;
+                line-height: 1.2;
+                color: stencilColor("color-black");
+                background: transparent url(../img/sf_form-arrow.svg) no-repeat right calc(50% + 1px);
+                
+                &:focus
+                {
+                    outline: none !important;
+                }
+            }
+        }
+    }
+    
+    .form-field
+    {
+        margin: 0;
+    }
+}

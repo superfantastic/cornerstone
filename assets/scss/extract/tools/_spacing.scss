@@ -1,0 +1,69 @@
+// SF - Margins
+// -----------------------------------------------------------------------------
+
+$marginIncrement: 0.5rem;
+
+.m__size-0 { margin: 0; }
+
+@for $i from 1 through 20
+{
+    .m__size-#{$i}
+    {
+        margin: 0 + ($marginIncrement * $i) 0;
+    }
+}
+
+@for $i from 1 through 20
+{
+    .mt__size-#{$i}
+    {
+        margin-top: 0 + ($marginIncrement * $i);
+    }
+}
+
+@for $i from 1 through 20
+{
+    .mb__size-#{$i}
+    {
+        margin-bottom: 0 + ($marginIncrement * $i);
+    }
+}
+
+.m__top-none    { margin-top: 0; }
+.m__bottom-none { margin-bottom: 0; }
+
+
+
+// SF - Padding
+// -----------------------------------------------------------------------------
+
+$paddingIncrement: 0.5rem;
+
+.p__size-0 { padding: 0; }
+
+@for $i from 1 through 20
+{
+    .p__size-#{$i}
+    {
+        padding: 0 + ($paddingIncrement * $i) 0;
+    }
+}
+
+@for $i from 1 through 20
+{
+    .pt__size-#{$i}
+    {
+        padding-top: 0 + ($paddingIncrement * $i);
+    }
+}
+
+@for $i from 1 through 20
+{
+    .pb__size-#{$i}
+    {
+        padding-bottom: 0 + ($paddingIncrement * $i);
+    }
+}
+
+.p__top-none    { padding-top: 0; }
+.p__bottom-none { padding-bottom: 0; }

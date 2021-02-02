@@ -1,0 +1,177 @@
+// Overrides
+// -----------------------------------------------------------------------------
+
+h1,h2,h3,h4,h5,h6
+{
+    @extend .font__bebas;
+    line-height: 1.2;
+    color: stencilColor("color-black");
+}
+
+a
+{
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+    color: stencilColor("color-black");
+    transition: all 0.3s ease;
+    
+    &:hover
+    {
+        text-decoration: none;
+        color: stencilColor("color-sf-warmGrey");
+    }
+}
+
+ul
+{
+    margin-left: 2rem;
+}
+
+.definitionList
+{
+    font-size: 1.3rem;
+
+    &.definitionList__size-l
+    {
+        font-size: 1.6rem;
+    }
+}
+
+.definitionList-key
+{
+    font-weight: 500;
+    color: stencilColor("color-greyMedium");
+}
+
+.definitionList-value
+{
+    color: stencilColor("color-black");
+}
+
+
+
+// SF - Fonts
+// -----------------------------------------------------------------------------
+
+.font__bebas
+{
+    font-family: stencilString("headings-font");
+    font-weight: 600;
+}
+
+.font__museoSlab
+{
+    font-family: stencilString("body-font");
+    font-weight: 500;
+    
+    &.font__weight-300 { font-weight: 300; }
+    &.font__weight-500 { font-weight: 500; }
+    &.font__weight-700 { font-weight: 700; }
+}
+
+.font__fave
+{
+    font-family: stencilString("font-fave");
+    font-weight: 400;
+    
+    &.font__weight-700 { font-weight: 700; }
+}
+
+.font__fave-condensed
+{
+    font-family: stencilString("font-fave-condensed");
+    font-weight: 400;
+}
+
+
+
+// SF - Text Helpers
+// -----------------------------------------------------------------------------
+
+.text__align-left           { text-align: left; }
+.text__align-right          { text-align: right; }
+.text__align-center         { text-align: center; }
+
+.text__transform-uppercase  { text-transform: uppercase; }
+.text__transform-lowercase  { text-transform: lowercase; }
+.text__transform-none       { text-transform: none; }
+
+
+
+// SF - Sizing
+// -----------------------------------------------------------------------------
+
+$baseSize_small: 1rem;
+$baseSize_large: 2.8rem;
+$sizeIncrement_small: 0.2rem;
+$sizeIncrement_large: 0.6rem;
+
+@for $i from 0 through 9
+{
+    .text__size-#{$i}
+    {
+        font-size: $baseSize_small + ($sizeIncrement_small * $i);
+    }
+}
+
+@for $i from 1 through 11
+{
+    $j: $i + 9;
+    
+    .text__size-#{$j}
+    {
+        font-size: $baseSize_large + ($sizeIncrement_small * $i);
+    }
+    
+    @include breakpoint("medium") {
+        .text__size-#{$j}
+        {
+            font-size: $baseSize_large + ($sizeIncrement_large * $i);
+        }
+    }
+}
+
+
+
+// SF - Line Height
+// -----------------------------------------------------------------------------
+
+$heightIncrement: 0.1;
+
+@for $i from 0 through 20
+{
+    .text__lineHeight-#{$i}
+    {
+        line-height: 1 + ($heightIncrement * $i);
+    }
+}
+
+
+
+// SF - Letter Spacing
+// -----------------------------------------------------------------------------
+
+$spacingIncrement: 0.05rem;
+
+@for $i from 0 through 10
+{
+    .text__letterSpacing-#{$i}
+    {
+        letter-spacing: 0 + ($spacingIncrement * $i);
+    }
+}
+
+
+
+// SF - Colours
+// -----------------------------------------------------------------------------
+
+.text__colour-black
+{
+    color: stencilColor("color-black");
+}
+
+.text__colour-greyMedium
+{
+    color: stencilColor("color-greyMedium");
+}

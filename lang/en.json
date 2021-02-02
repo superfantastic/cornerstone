@@ -1,7 +1,9 @@
 {
     "header": {
         "welcome_back": "Welcome back, {name}",
-        "skip_to_main": "Skip to main content"
+        "skip_to_main": "Skip to main content",
+        "store_name": "Extract Coffee Roasters",
+        "make_coffee_better": "Make Coffee Better"
     },
     "footer": {
         "title": "Footer Start",
@@ -65,7 +67,8 @@
             "checkout_multiple": "or check out with multiple addresses",
             "view_cart": "View Cart"
         },
-        "label": "Your Cart ({quantity, plural, one {# item} other {# items}})",
+        "label": "Your Cart",
+        "label_items": "{quantity, plural, one {# item} other {# items}}",
         "is_empty": "Your cart is empty",
         "coupon_code": "Coupon Code",
         "discount": "Discount",
@@ -121,7 +124,7 @@
             "preview": "Preview"
         },
         "added_to_cart": {
-            "what_next": "Ok, {num_products, plural, one {1 item was} other {# items were}} added to your cart. What's next?",
+            "what_next": "Ok, {num_products, plural, one {1 item is in} other {# items are in}} your cart. What's next?",
             "your_cart_contains": "Your cart contains {num_products, plural, one {1 item} other {# items}}",
             "proceed_to_checkout": "Proceed to checkout",
             "order_subtotal": "Order subtotal",
@@ -203,6 +206,40 @@
             "10": "Oct",
             "11": "Nov",
             "12": "Dec"
+        },
+        "nav": {
+            "shop": "Shop",
+            "subscribe": "Subscribe",
+            "explore": "Explore",
+            "roastery": "Roastery",
+            "more": "More",
+            "coffee": "Coffee",
+            "gear": "Gear",
+            "gifts": "Gifts",
+            "tea": "Tea",
+            "hot_chocolate": "Hot Chocolate",
+            "ask_the_prof": "Ask the Prof",
+            "personal": "Personal",
+            "office": "Office",
+            "behind_roastery_doors": "Behind Roastery Doors",
+            "roastery_journal": "Roastery Journal",
+            "brew_guides": "Brew Guides",
+            "sustainability": "Sustainability",
+            "where_to_drink": "Where to Drink",
+            "wholesale": "Wholesale",
+            "contact": "Contact",
+            "faqs": "FAQs",
+            "tcs": "T&Cs",
+            "privacy": "Privacy",
+            "cookies": "Cookies",
+            "filter": "Filter"
+        },
+        "filters": {
+            "like_it": "How do you like it?",
+            "roast": "Roast",
+            "flavours": "Flavours",
+            "geography": "Geography",
+            "process": "Process"
         }
     },
     "compare": {
@@ -257,6 +294,7 @@
         "field_password": "Password:",
         "submit_value": "Sign in",
         "forgot_password": "Forgot your password?",
+        "welcome_back": "Welcome Back!",
         "new_customer": {
             "heading": "New Customer?",
             "intro": "Create an account with us and you'll be able to:",
@@ -273,7 +311,7 @@
         "intro": "Fill in your email below to request a new password. An email will be sent to the address below containing a link to verify your email address."
     },
     "account": {
-        "breadcrumb": "Your Account",
+        "breadcrumb": "My Account",
         "nav": {
             "overview": "Overview",
             "orders": "Orders",
@@ -587,8 +625,8 @@
         "inbox": {
             "order": "Order:",
             "order_display": "Order #{id} - Placed on {date} for {total}",
-            "subject": "Subject",
-            "message": "Message",
+            "subject": "Subject:",
+            "message": "Message:",
             "submit_value": "Send Message",
             "send_message": "Send a Message",
             "clear_value": "Clear",
@@ -778,7 +816,8 @@
             "percent": "and get {discount} off",
             "price": "and get {discount} off",
             "fixed": "and pay only {discount} each"
-        }
+        },
+        "subscribe_prompt": "I'd like to subscribe to this product"
     },
     "invoice": {
         "for_order": "{name} Invoice for Order #{id}",
@@ -809,7 +848,8 @@
         "unsubscribed_message": "You will no longer receive marketing emails from <b>{store_name}</b>"
     },
     "social": {
-        "connect": "Connect With Us"
+        "connect": "Connect With Us",
+        "follow_share": "FOLLOW US ➙ SHARE YOUR SHOTS"
     },
     "errors": {
         "shipping_quote_failure": "There was a problem retrieving your shipping quote",

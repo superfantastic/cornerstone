@@ -1,16 +1,28 @@
 {{inject 'passwordRequirements' settings.password_requirements}}
 {{#partial "page"}}
+
+<header>
+    <hgroup>
+        <h1 class="text__align-center text__transform-uppercase text__size-17 text__lineHeight-1 m__bottom-none">{{lang 'account.breadcrumb'}}</h1>
+        <h2 class="text__align-center text__transform-uppercase text__size-11 text__lineHeight-1 m__top-none">{{lang 'account.settings.heading' }}</h2>
+    </hgroup>
+</header>
+<hr class="sf-separator sf-separator__dotted sf-separator__dotted-large" />
+
 <div class="account account--fixed">
-    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-    <h2 class="page-heading">{{lang 'account.settings.heading' }}</h2>
+    
     {{> components/account/navigation account_page='settings'}}
+    
     {{#if forms.edit_account.error}}
-    {{> components/common/alert/alert-error forms.edit_account.error}}
+        {{> components/common/alert/alert-error forms.edit_account.error}}
     {{/if}}
+    
     {{#if forms.edit_account.success}}
-    {{> components/common/alert/alert-success forms.edit_account.success}}
+        {{> components/common/alert/alert-success forms.edit_account.success}}
     {{/if}}
+    
     {{> components/account/edit-account}}
 </div>
+
 {{/partial}}
 {{> layout/base}}

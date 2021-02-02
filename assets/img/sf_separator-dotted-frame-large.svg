@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+    <g id="sf_separator-dotted-frame-large" fill="none" fill-rule="evenodd">
+        <circle id="Oval" cx="6" cy="6" r="6" fill="#1D1D1B"/>
+        <circle id="Oval-Copy" cx="24" cy="6" r="6" fill="#1D1D1B"/>
+        <circle id="Oval-Copy-2" cx="42" cy="6" r="6" fill="#1D1D1B"/>
+        <circle id="Oval-Copy-5" cx="6" cy="24" r="6" fill="#1D1D1B"/>
+        <circle id="Oval-Copy-3" cx="42" cy="24" r="6" fill="#1D1D1B"/>
+        <circle id="Oval-Copy-8" cx="6" cy="42" r="6" fill="#1D1D1B"/>
+        <circle id="Oval-Copy-7" cx="24" cy="42" r="6" fill="#1D1D1B"/>
+        <circle id="Oval-Copy-6" cx="42" cy="42" r="6" fill="#1D1D1B"/>
+    </g>
+</svg>

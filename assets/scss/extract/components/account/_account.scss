@@ -1,0 +1,290 @@
+// Overrides
+// -----------------------------------------------------------------------------
+
+.account--fixed
+{
+    @include breakpoint("medium") {
+        width: 75%;
+    }
+}
+
+.account-sidebar-block
+{
+    font-size: inherit;
+}
+
+.account-sidebar-block + .account-sidebar-block
+{
+    margin-top: 4rem;
+}
+
+
+
+// =============================================================================
+// SF - Account Nav Bar
+
+.sf-accountNavigation__links
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    li
+    {
+        margin: 0 1rem;
+        font-family: stencilString("headings-font");
+        font-size: 2.2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05rem;
+
+        &:first-child
+        {
+            margin-left: 0;
+        }
+
+        &:last-child
+        {
+            margin-right: 0;
+        }
+
+        &.is-active,
+        &.is-active a
+        {
+            text-decoration: underline;
+            text-underline-offset: 0.8rem;
+            color: stencilColor("color-black");
+        }
+    }
+
+    a
+    {
+        text-decoration: none;
+        color: stencilColor("color-greyMedium");
+
+        &:hover
+        {
+            color: stencilColor("color-sf-warmGrey");
+        }
+    }
+}
+
+
+
+// =============================================================================
+// SF - Account Order List
+
+.sf-accountOrdersList
+{
+    .sf-accountOrdersList__item
+    {
+        margin-bottom: 3rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid stencilColor("color-greyLightest");
+
+        &:last-child
+        {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.sf-accountProduct
+{
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint("medium") {
+        flex-direction: row;
+        justify-content: space-between;
+
+        .sf-accountProduct__image
+        {
+            flex: 0 1 100px;
+            margin-right: 2rem;
+        }
+
+        .sf-accountProduct__details
+        {
+            flex: 1 1 auto;
+        }
+    }
+}
+
+.sf-accountProduct__title
+{
+    margin: 0;
+    margin-bottom: 1.2rem;
+    font-size: 2.2rem;
+
+    a
+    {
+        text-underline-offset: 0.5rem;
+
+        &:hover
+        {
+            text-decoration: none;
+        }
+    }
+}
+
+.sf-accountProduct__orderStatus
+{
+    b
+    {
+        display: inline-block;
+        padding: 0.4rem 1rem;
+        font-family: stencilString("headings-font");
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        color: stencilColor("color-greyLightest");
+        border-radius: 3px;
+        background-color: stencilColor("color-black");
+    }
+
+    @include breakpoint("medium") {
+        float: right;
+        margin-left: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+
+.sf-accountProduct__dates
+{
+    .sf-accountProduct__dates-item
+    {
+        margin-bottom: 1rem;
+    }
+
+    .sf-accountProduct__dates-title
+    {
+        margin: 0;
+        margin-bottom: 0.5rem;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        color: stencilColor("color-black");
+    }
+
+    @include breakpoint("medium") {
+        display: flex;
+        justify-content: flex-start;
+
+        .sf-accountProduct__dates-item
+        {
+            margin-bottom: 0;
+            flex: 0 1 auto;
+
+            &:first-child
+            {
+                margin-right: 3rem;
+            }
+        }
+    }
+}
+
+
+
+// =============================================================================
+// SF - Messages
+
+.sf-accountMessage__title
+{
+    margin-bottom: 1.2rem;
+    font-family: stencilString('body-font');
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.4;
+    text-transform: none;
+}
+
+
+
+// =============================================================================
+// SF - Order Details Grid
+
+.sf-orderDetails__grid
+{
+    display: grid;
+    grid-gap: 4rem;
+
+    @include breakpoint("small") {
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    }
+
+    @include breakpoint("medium") {
+        grid-gap: 6rem;
+        grid-template-columns: minmax(0, 5fr) minmax(0, 2fr);
+    }
+}
+
+.sf-orderContent
+{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+// =============================================================================
+// SF - Order Details Product Listing
+
+.sf-accountProduct
+{
+    display: flex;
+    flex-direction: column;
+
+    .definitionList
+    {
+        margin-bottom: 0;
+    }
+
+    .definitionList + .definitionList
+    {
+        margin-top: 2rem;
+    }
+
+    @include breakpoint("medium") {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .sf-accountProduct__checkItem
+        {
+            margin-right: 1rem;
+            flex: 0 0 30px;
+        }
+    }
+}
+
+
+
+// =============================================================================
+// SF - Account Order Totals
+
+.account-orderTotal
+{
+    float: none;
+    margin: 0;
+    width: 100%;
+    align-self: flex-end;
+
+    @include breakpoint("medium") {
+        width: 70%;
+    }
+}
+
+.account-orderTotal
+{
+    font-size: 1.6rem;
+}
+
+.account-orderTotal-value
+{
+    &:last-child
+    {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+}

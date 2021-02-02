@@ -1,0 +1,187 @@
+// SF - Hero
+// -----------------------------------------------------------------------------
+
+.sf-productHero
+{
+    padding-top: 42.857142%;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    
+    @include breakpoint(1600px) {
+        padding-top: 0;
+        height: 686px;
+    }
+}
+
+
+
+// SF - Product Info (Custom Fields)
+// -----------------------------------------------------------------------------
+
+.sf-product-info
+{
+    margin: 0;
+    
+    > div
+    {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 1.1rem;
+        border-bottom: 1px solid stencilColor("color-black");
+        
+        &:last-child
+        {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+    }
+    
+    .sf-product-info-name
+    {
+        flex: 0 0 120px;
+        margin: 0;
+        margin-right: 2rem;
+        font-size: 1.2rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 0.05rem;
+    }
+    
+    .sf-product-info-value
+    {
+        position: relative;
+        top: -2px;
+        flex: 1 1 auto;
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 500;
+        letter-spacing: 0.01rem;
+    }
+}
+
+
+
+// SF - Product Details & Ordering Interface
+// -----------------------------------------------------------------------------
+
+.productView-product
+{
+    padding: 0;
+    border: none;
+    
+    .sf-productView__titleWrapper
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .productView-title
+    {
+        flex: 0 1 auto;
+        order: 2;
+        margin: 0;
+        margin-bottom: 0.5rem;
+        font-family: stencilString("headings-font");
+        font-size: 4rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        line-height: 1.2;
+        color: stencilColor("color-black");
+    }
+    
+    .productView-brand
+    {
+        order: 1;
+        margin: 0;
+        font-family: stencilString("body-font");
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0;
+        
+        a
+        {
+            text-decoration: none;
+            color: stencilColor("color-greyMedium");
+            
+            &:hover
+            {
+                color: stencilColor("color-grey");
+            }
+        }
+    }
+    
+    .productView-price
+    {
+        font-family: stencilString("body-font");
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 0.05rem;
+        color: stencilColor("color-black");
+    }
+}
+
+.productView-options
+{
+    .form-increment
+    {
+        position: relative;
+        top: -6px;
+    }
+}
+
+
+
+// SF - Product Ratings
+// -----------------------------------------------------------------------------
+
+.productView-rating
+{
+    font-size: 1.4rem;
+    font-weight: 500;
+    
+    .sf-productView__stars
+    {
+        position: relative;
+        top: -1px;
+        margin-right: 1rem;
+    }
+    
+    .icon
+    {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+    
+    .icon--ratingFull
+    {
+        svg
+        {
+            fill: stencilColor("color-sf-yellow");
+        }
+    }
+}
+
+.productView-reviewLink
+{
+    color: stencilColor("color-black");
+    
+    &:hover
+    {
+        text-decoration: none;
+        color: stencilColor("color-textLink--hover");
+    }
+}
+
+
+
+// SF - Show/Hide Subscription Options
+// -----------------------------------------------------------------------------
+
+.sf-grid__product .productView-details .form-field[data-subscription-element]
+{
+    display: none;
+}

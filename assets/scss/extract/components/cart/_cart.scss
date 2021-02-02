@@ -1,0 +1,171 @@
+// Cart Structure
+// -----------------------------------------------------------------------------
+
+.cart
+{
+    margin-top: 6rem;
+}
+
+.cart-list
+{
+    border-top: 5px solid stencilColor("color-black");
+}
+
+.cart-item
+{
+    padding: 2.5rem 0;
+    border-bottom: 2px solid stencilColor("color-greyLightest");
+}
+
+
+
+// Cart Header
+// -----------------------------------------------------------------------------
+
+.cart-header-item
+{
+    font-weight: 700;
+    color: stencilColor("color-black");
+}
+
+
+
+// Cart Items
+// -----------------------------------------------------------------------------
+
+.cart-item-block
+{
+    @include breakpoint("medium") {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+}
+
+.cart-item-brand
+{
+    font-family: stencilString("body-font");
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    
+    a
+    {
+        text-decoration: none;
+        color: stencilColor("color-greyMedium");
+        
+        &:hover
+        {
+            color: stencilColor("color-sf-warmGrey");
+        }
+    }
+}
+
+.cart-item-name
+{
+    font-family: stencilString("headings-font");
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+    line-height: 1.2;
+    color: stencilColor("color-black");
+    
+    a
+    {
+        text-decoration: none;
+    }
+}
+
+.cart-item-name + .definitionList
+{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cart-item-change
+{
+    font-size: 1.4rem;
+    color: stencilColor("color-black");
+}
+
+.cart-remove
+{
+    margin: 0;
+    margin-left: 1rem;
+    margin-top: -3px;
+    padding: 1rem;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    transition: all 0.3s ease;
+    
+    &:hover
+    {
+        background-color: stencilColor("color-sf-warmGrey");
+    }
+}
+
+.cart-item-quantity
+{
+    .form-increment
+    {
+        display: inline-flex;
+        align-items: center;
+    }
+}
+
+
+
+// Cart Totals
+// -----------------------------------------------------------------------------
+
+.cart-total + .cart-total
+{
+    border-top: 2px solid stencilColor("color-greyLightest");
+}
+
+.cart-total-label
+{
+    color: stencilColor("color-greyMedium");
+    
+    strong
+    {
+        font-weight: 700;
+    }
+}
+
+.cart-total-grandTotal
+{
+    font-family: stencilString("body-font");
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.cart-additionalCheckoutButtons .FloatRight p, 
+.previewCart-additionalCheckoutButtons .FloatRight p
+{
+    margin-top: 1.2rem;
+}
+
+.coupon-code-cancel,
+.shipping-estimate-hide
+{
+    font-style: normal;
+}
+
+.coupon-code-add, 
+.coupon-code-cancel, 
+.shipping-estimate-show, 
+.shipping-estimate-hide, 
+.gift-certificate-add, 
+.gift-certificate-cancel
+{
+    color: stencilColor("color-black");
+    
+    &:hover
+    {
+        text-decoration: none;
+        color: stencilColor("color-sf-warmGrey");
+    }
+}

@@ -1,0 +1,23 @@
+// Overrides
+// -----------------------------------------------------------------------------
+
+.share-wishlist
+{
+    margin-bottom: 5rem;
+    padding: 2rem;
+    max-width: 600px;
+    background-color: stencilColor("color-greyLightest");
+
+    .panel-body
+    {
+        margin: 0;
+        padding: 0;
+    }
+
+    h5
+    {
+        font-family: stencilString("body-font");
+        font-size: 1.8rem;
+        font-weight: 700;
+    }
+}

@@ -1,15 +1,13 @@
 <div class="wishlist-add">
-    <header class="wishlist-header">
-        {{#if forms.wishlist.id}}
-            <h1>{{lang 'account.wishlists.edit'}}</h1>
-        {{else}}
-            <h1>{{lang 'account.wishlists.new'}}</h1>
-            <p>{{lang 'account.wishlists.tag_line'}}</p>
-        {{/if}}
-        {{#if forms.wishlist.errors}}
-            {{> components/common/alert/alert-error forms.wishlist.errors}}
-        {{/if}}
-    </header>
+
+    {{#if forms.wishlist.errors}}
+        {{> components/common/alert/alert-error forms.wishlist.errors}}
+    {{/if}}
+
+    {{#unless forms.wishlist.id}}
+        <p class="text__align-center">{{lang 'account.wishlists.tag_line'}}</p>
+    {{/unless}}
+
     <form action="{{#if forms.wishlist.id}}{{urls.account.wishlists.edit}}{{else}}{{urls.account.wishlists.add}}&product_id={{forms.wishlist.product_id}}{{/if}}" class="form wishlist-form" method="post">
         <input type="hidden" name="submit">
 
@@ -21,9 +19,10 @@
             <input class="form-input" name="wishlistname" id="wishlistname" value="{{forms.wishlist.name}}">
         </div>
         <div class="form-field">
-            <input type="checkbox" class="form-checkbox" name="publicwishlist" id="publicwishlist" {{#if forms.wishlist.is_public}}checked{{/if}}>
-            <label class="form-label" for="publicwishlist">{{lang 'forms.wishlist.public' }}</label>
-
+            <div class="sf-input__checkbox">
+                <input id="publicwishlist" name="publicwishlist" type="checkbox" value="true" {{#if forms.wishlist.is_public}}checked{{/if}} />
+                <label for="publicwishlist">{{lang 'forms.wishlist.public' }}</label>
+            </div>
         </div>
         <div class="form-actions">
             {{#if forms.wishlist.id}}

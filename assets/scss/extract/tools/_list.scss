@@ -1,0 +1,73 @@
+// =============================================================================
+// SF - BlankList
+
+.sf-blankList
+{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+
+
+// =============================================================================
+// SF - Inline List
+
+.sf-inlineList
+{
+    display: flex;
+    align-items: center;
+    
+    &.sf-inlineList__alignment-left,
+    &.sf-inlineList__alignment-center
+    {
+        li:last-child
+        {
+            margin-right: 0;
+        }  
+    }
+    
+    &.sf-inlineList__alignment-right
+    {
+        li:last-child
+        {
+            margin-left: 0;
+        }
+    }
+}
+
+$spacingIncrement: 0.2rem;
+
+@for $i from 0 through 20
+{
+    .sf-inlineList__spacing-#{$i}
+    {
+        &.sf-inlineList__alignment-left,
+        &.sf-inlineList__alignment-center
+        {
+            li
+            {
+                margin-right: ($spacingIncrement * $i);
+            }
+        }
+        
+        &.sf-inlineList__alignment-right
+        {
+            li
+            {
+                margin-right: ($spacingIncrement * $i);
+            }
+        }
+    }
+}
+
+.sf-inlineList__alignment-left   { justify-content: flex-start; }
+.sf-inlineList__alignment-center { justify-content: center; }
+.sf-inlineList__alignment-right  { justify-content: flex-end; }
+
+@media (max-width: 800px)
+{
+    .sf-inlineList__alignment-left_small    { justify-content: flex-start; }
+    .sf-inlineList__alignment-center_small  { justify-content: center; }
+    .sf-inlineList__alignment-right_small   { justify-content: flex-end; }
+}

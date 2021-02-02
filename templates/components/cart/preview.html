@@ -5,10 +5,12 @@
 </div>
 
 <div class="modal-body">
-    <div class="previewCart">
-        <section class="previewCartCheckout">
+
+    <div class="sf-previewCart">
+
+        <section class="sf-previewCartCheckout">
             {{#if cart.show_primary_checkout_button}}
-                <a href="{{urls.checkout.single_address}}" class="button button--primary">
+                <a href="{{urls.checkout.single_address}}" class="button button--primary button--small button--fullWidth">
                     {{lang 'cart.added_to_cart.proceed_to_checkout'}}
                 </a>
             {{/if}}
@@ -42,38 +44,27 @@
             <p data-cart-quantity="{{cart.quantity}}">
                 {{lang 'cart.added_to_cart.your_cart_contains' num_products=cart.quantity}}
             </p>
-
-            <a href="#" class="button button--primary" role="button" data-reveal-close>
-                {{lang 'cart.added_to_cart.continue_shopping'}}
-            </a>
-
-            <a href="{{urls.cart}}" class="button">
-                {{lang 'cart.added_to_cart.view_or_edit_cart'}}
-            </a>
+            
+            <div><a href="#" class="button button--primary button--small button--fullWidth" role="button" data-reveal-close>{{lang 'cart.added_to_cart.continue_shopping'}}</a></div>
+            <a href="{{urls.cart}}" class="button button--small button--fullWidth">{{lang 'cart.added_to_cart.view_or_edit_cart'}}</a>
         </section>
-        <section class="productView">
+        
+        <section class="sf-productView">
             {{#with cart.added_item}}
                 <figure class="productView-image">
-                    <div class="productView-img-container">
-                        {{> components/common/responsive-img
-                            image=image
-                            class="productView-image--cart"
-                            fallback_size=../theme_settings.product_size
-                            lazyload=../theme_settings.lazyload_mode
-                            default_image=../theme_settings.default_image_product
-                        }}
-                    </div>
+                    <img src="{{getImage image 'product_size'}}" alt="{{image.alt}}" />
                 </figure>
 
-                <div class="productView-details">
-                    <h2 class="productView-title">
-                        {{name}}
-                    </h2>
-
-                    <div class="productView-brand">
-                        {{brand.name}}
+                <div class="productView-details productView-product">
+                    <div class="sf-productView__titleWrapper">
+                        <h1 class="productView-title">{{name}}</h1>
+                        {{#if brand.name}}
+                            <h2 class="productView-brand">
+                                <a href="{{brand.url}}"><span>{{brand.name}}</span></a>
+                            </h2>
+                        {{/if}}
                     </div>
-
+                    
                     <div class="productView-price">
                         {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
                             {{quantity}} &times; {{price.formatted}}
@@ -81,22 +72,25 @@
                             {{> components/common/login-for-pricing}}
                         {{/or}}
                     </div>
-
-                    {{#each options}}
-                        <dl class="productView-info">
-                            <dt class="productView-info-name">
-                                {{name}}
-                            </dt>
-                            <dd class="productView-info-value">
-                                {{{ sanitize value}}}
-                            </dd>
+                    
+                    <hr class="m__size-5 sf-separator__dotted sf-separator__dotted-small" />
+                    
+                    <div class="sf-product-info_container">
+                        <dl class="sf-product-info">
+                            {{#each options}}
+                                <div class="m__size-3 m__top-none">
+                                    <dt class="sf-product-info-name">{{name}}:</dt>
+                                    <dd class="sf-product-info-value text__letterSpacing-2">{{{ sanitize value}}}</dd>
+                                </div>
+                            {{/each}}
                         </dl>
-                    {{/each}}
+                    </div>
                 </div>
             {{/with}}
         </section>
+        
     </div>
-
+    
     {{#if cart.suggested_products}}
         <section class="suggestiveCart">
             <h2>
@@ -112,4 +106,5 @@
             </ul>
         </section>
     {{/if}}
+    
 </div>

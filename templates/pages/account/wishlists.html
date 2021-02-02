@@ -1,11 +1,21 @@
 {{#partial "page"}}
+
+<!-- {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}} -->
+
+<header>
+    <hgroup>
+        <h1 class="text__align-center text__transform-uppercase text__size-17 text__lineHeight-1 m__bottom-none">{{lang 'account.breadcrumb'}}</h1>
+        <h2 class="text__align-center text__transform-uppercase text__size-11 text__lineHeight-1 m__top-none">{{lang 'account.wishlists.heading' }}</h2>
+    </hgroup>
+</header>
+<hr class="sf-separator sf-separator__dotted sf-separator__dotted-large" />
+
 {{#if settings.show_wishlist}}
-    <div class="account account--fixedLarge">
-        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-        <h2 class="page-heading">{{lang 'account.wishlists.heading' }}</h2>
+    <div class="account account--fixed">
         {{> components/account/navigation account_page='wishlists'}}
         {{> components/account/wishlist-list}}
     </div>
 {{/if}}
+
 {{/partial}}
 {{> layout/base}}

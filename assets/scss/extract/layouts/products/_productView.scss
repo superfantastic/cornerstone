@@ -1,0 +1,87 @@
+// =============================================================================
+// Overrides
+
+.productView {
+    display: block;
+    margin: 0;
+    padding-top: 4rem;
+}
+
+.productView-images {
+    margin-bottom: 0;
+}
+
+.productView-details {
+    padding: 0;
+    float: none;
+    clear: none;
+    width: inherit;
+    overflow: visible;
+}
+
+.productView-description {
+    padding-left: 0;
+    padding-right: 0;
+    float: none;
+    clear: none;
+    width: inherit;
+    
+    .productView-title {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .productView-description {
+        @include breakpoint("medium") {
+            clear: none;
+        }
+    }
+}
+
+
+
+// SF - Single Product Layout
+// -----------------------------------------------------------------------------
+
+.sf-grid__product
+{
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+    grid-gap: 4rem;
+    
+    .sf-grid__product-left
+    {
+        order: 2;
+    }
+    
+    @include breakpoint("medium") {
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+        
+        .sf-grid__product-sticky
+        {
+            position: sticky;
+            top: 2rem;
+            z-index: 1;
+        }
+        
+        .sf-grid__product-left
+        {
+            order: 0;
+        }
+    }
+}
+
+@include breakpoint("medium") {
+    .productView
+    {
+        .sf-grid__product-left
+        {
+            &.sf-offset
+            {
+                transform: translateY(-225px);
+            }
+        }
+    }
+}

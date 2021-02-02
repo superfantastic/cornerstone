@@ -1,25 +1,36 @@
 ---
 blog:
     posts:
-        limit: 5
-        pages: 3
+        limit: 9
+        pages: 10
         summary: 200
 ---
-{{#partial "page"}}
 
-{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+{{#partial "page"}}
 
 <main class="page">
     {{#unless theme_settings.hide_blog_page_heading }}
-        <h1 class="page-heading">{{ blog.name }}</h1>
+        <h1 class="text__align-center text__transform-uppercase text__size-17 text__lineHeight-1">{{blog.name}}</h1>
+        <hr class="sf-separator sf-separator__dotted sf-separator__dotted-large" />
     {{/unless}}
 
-    {{#each blog.posts}}
-        {{> components/blog/post post=this}}
-    {{/each}}
+    <ul class="sf-posts__tags sf-blankList mb__size-8">
+        {{#each blog.posts}}
+            {{#each this.tags}}
+                <li><a href="{{url}}">{{name}}</a></li>
+            {{/each}}
+        {{/each}}
+    </ul>
+
+    <ol class="sf-posts__grid sf-blankList mb__size-12">
+        {{#each blog.posts}}
+            <li>{{> extract/components/blog/post-card post=this}}</li>
+        {{/each}}
+    </ol>
 
     {{> components/common/paginator pagination.blog}}
 </main>
 
 {{/partial}}
+
 {{> layout/base}}

@@ -6,8 +6,14 @@ customer:
 
 {{#partial "page"}}
 
-{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-<h1 class="page-heading">{{lang 'account.orders.heading' }}</h1>
+<header>
+    <hgroup>
+        <h1 class="text__align-center text__transform-uppercase text__size-17 text__lineHeight-1 m__bottom-none">{{lang 'account.breadcrumb'}}</h1>
+        <h2 class="text__align-center text__transform-uppercase text__size-11 text__lineHeight-1 m__top-none">{{lang 'account.orders.heading' }}</h2>
+    </hgroup>
+</header>
+<hr class="sf-separator sf-separator__dotted sf-separator__dotted-large" />
+
 {{> components/account/navigation account_page='orders'}}
 
 <main class="account account--fixed">
@@ -18,11 +24,12 @@ customer:
             </div>
         {{/if}}
     </div>
+    
     <div class="account-body">
         <section class="account-content">
             {{#if customer.orders.length}}
                 {{> components/account/orders-list orders=customer.orders}}
-                {{> components/common/small-paginator pagination.orders}}
+                {{> extract/components/common/small-paginator pagination.orders}}
             {{else}}
                 {{> components/common/alert/alert-info (lang 'account.orders.none')}}
             {{/if}}

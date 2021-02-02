@@ -1,7 +1,15 @@
 {{#partial "page"}}
 
-{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-<h1 class="page-heading">{{lang 'account.messages.heading' }}</h1>
+<!-- {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}} -->
+
+<header>
+    <hgroup>
+        <h1 class="text__align-center text__transform-uppercase text__size-17 text__lineHeight-1 m__bottom-none">{{lang 'account.breadcrumb'}}</h1>
+        <h2 class="text__align-center text__transform-uppercase text__size-11 text__lineHeight-1 m__top-none">{{lang 'account.messages.heading' }}</h2>
+    </hgroup>
+</header>
+<hr class="sf-separator sf-separator__dotted sf-separator__dotted-large" />
+
 {{> components/account/navigation account_page='messages'}}
 
 <main class="account account--fixed">
@@ -10,10 +18,14 @@
             {{#if forms.inbox.error}}
                 {{> components/common/alert/alert-error forms.inbox.error}}
             {{/if}}
+
             {{#if forms.inbox.success}}
                 {{> components/common/alert/alert-success forms.inbox.success}}
             {{/if}}
+
+            <h3 class="text__size-8 text__lineHeight-1 m__top-none m__size-4">{{lang 'account.messages.heading' }}</h3>
             {{> components/account/messages-list messages=customer.inbox.messages}}
+
             {{> components/account/messages-form}}
         </section>
     </div>

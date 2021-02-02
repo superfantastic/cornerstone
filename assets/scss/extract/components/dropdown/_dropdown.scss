@@ -1,0 +1,22 @@
+// SF - Cart Preview Dropdown
+// -----------------------------------------------------------------------------
+
+.sf-navigation__cart-dropdown
+{
+    position: absolute;
+    left: -9999px;
+    display: none;
+    margin-left: 0;
+    margin-top: 3rem;
+    height: auto;
+    max-width: 370px;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0px 0px 0 1px rgba(stencilColor("color-black"), 0.05), 6px 6px 0 0 rgba(stencilColor("color-black"), 0.2);
+    z-index: 89;
+    
+    &.is-open
+    {
+        display: block;
+    }
+}

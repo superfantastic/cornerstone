@@ -1,0 +1,11 @@
+{{#if social_media}}
+    <ul class="sf-socialLinks sf-blankList">
+        {{#each social_media}}
+            <li class="sf-socialLinks__item">
+                <a class="socialIcon socialIcon__{{display_name}}" href="{{url}}" target="_blank" rel="noopener">
+                    <svg width="100" height="100"><use xlink:href="#icon-sf_social-{{display_name}}" /></svg>
+                </a>
+            </li>
+        {{/each}}
+    </ul>
+{{/if}}

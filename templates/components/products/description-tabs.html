@@ -28,14 +28,18 @@
        </div>
    {{/if}}
    {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
-      <div class="tab-content" id="tab-{{dashcase (lowercase (sanitize theme_settings.pdp-custom-fields-tab-label))}}">
-         <dl class="productView-info">
-            {{#each product.custom_fields}}
-               <dt class="productView-info-name">{{name}}:</dt>
-               <dd class="productView-info-value">{{{value}}}</dd>
-            {{/each}}
-         </dl>
-      </div>
+        <div class="tab-content" id="tab-{{dashcase (lowercase (sanitize theme_settings.pdp-custom-fields-tab-label))}}">
+            <div class="sf-product-info_container">
+                <dl class="sf-product-info">
+                    {{#each product.custom_fields}}
+                        <div class="m__size-3 m__top-none">
+                            <dt class="sf-product-info-name">{{name}}:</dt>
+                            <dd class="sf-product-info-value text__letterSpacing-2">{{{value}}}</dd>
+                        </div>
+                    {{/each}}
+                </dl>
+            </div>
+        </div>
    {{/all}}
    {{#all settings.show_product_reviews theme_settings.show_product_reviews}}
        <div class="tab-content" id="tab-reviews">

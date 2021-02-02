@@ -1,0 +1,112 @@
+// Overrides
+// -----------------------------------------------------------------------------
+
+.login
+{
+    max-width: 900px;
+}
+
+.login-row
+{
+    display: grid;
+    grid-gap: 4rem;
+    grid-template-columns: minmax(0, 1fr);
+    
+    &::before,
+    &::after
+    {
+        display: none;
+    }
+    
+    @include breakpoint("medium") {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+}
+
+.login-form,
+.new-customer
+{
+    float: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+
+
+// SF - Login Form
+// -----------------------------------------------------------------------------
+
+.login-form
+{
+    .button
+    {
+        margin-bottom: 0;
+    }
+}
+
+
+
+// SF - New Customer Panel
+// -----------------------------------------------------------------------------
+
+.new-customer
+{
+    .panel
+    {
+        padding: 4rem;
+        background-color: stencilColor("color-black");
+        border-radius: 3px;
+        
+        @include breakpoint("medium") {
+            padding: 4rem 5rem;
+        }
+    }
+    
+    .panel-header,
+    .panel-body
+    {
+        margin: 0;
+        padding: 0;
+        color: white;
+        background-color: transparent;
+        
+        .button
+        {
+            margin: 0;
+            margin-top: 2rem;
+        }
+    }
+    
+    .panel-header
+    {
+        h2
+        {
+            margin-bottom: 2rem;
+            font-size: 4rem;
+            letter-spacing: 0.1rem;
+            text-transform: uppercase;
+            color: white;
+        }
+    }
+    
+    .new-customer-intro
+    {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.new-customer-fact-list
+{
+    .new-customer-fact
+    {
+        margin-bottom: 1rem;
+        line-height: 1.4;
+        
+        svg
+        {
+            margin-right: 5px;
+            transform: translateY(1px);
+        }
+    }
+}

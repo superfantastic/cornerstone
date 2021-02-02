@@ -16,19 +16,19 @@
                 </div>
             {{/if}}
         {{/or}}
+        
         <a href="{{url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>
-            <div class="card-img-container">
-                {{> components/common/responsive-img
-                    image=image
-                    class="card-image"
-                    fallback_size=theme_settings.productgallery_size
-                    lazyload=theme_settings.lazyload_mode
-                    default_image=theme_settings.default_image_product
-                }}
-            </div>
+            <img src="{{getImageSrcSet image 1x='400w'}}" srcset="{{getImageSrcset image 400w='400w'}}" sizes="400px" alt="{{image.alt}}" />
+            <!-- {{> components/common/responsive-img
+                image=image
+                class="card-image"
+                fallback_size=theme_settings.productgallery_size
+                lazyload=theme_settings.lazyload_mode
+                default_image=theme_settings.default_image_product
+            }} -->
         </a>
 
-        <figcaption class="card-figcaption">
+        <!-- <figcaption class="card-figcaption">
             <div class="card-figcaption-body">
                 {{#unless hide_product_quick_view}}
                     {{#if theme_settings.show_product_quick_view}}
@@ -61,24 +61,30 @@
                     {{/if}}
                 {{/or}}
             </div>
-        </figcaption>
+        </figcaption> -->
     </figure>
     <div class="card-body">
-        {{#and rating show_rating}}
+        <!-- {{#and rating show_rating}}
             <p class="card-text" data-test-info-type="productRating">
                 <span class="rating--small">
                     {{> components/products/ratings rating=rating}}
                 </span>
             </p>
-        {{/and}}
-        {{#if brand.name}}
+        {{/and}} -->
+        <!-- {{#if brand.name}}
             <p class="card-text" data-test-info-type="brandName">{{brand.name}}</p>
-        {{/if}}
-        <span class="card-title">
+        {{/if}} -->
+        <div class="card-title m__size-1 m__top-none font__bebas text__align-center text__transform-uppercase text__size-8 text__lineHeight-2">
             <a href="{{url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>{{name}}</a>
-        </span>
+        </div>
+        
+        {{#each custom_fields}}
+            {{#if name '==' 'IN THE CUP'}}
+                <p class="m__size-1 m__top-none text__align-center text__size-2">{{{ sanitize value}}}</p>
+            {{/if}}
+        {{/each}}
 
-        <div class="card-text" data-test-info-type="price">
+        <div class="card-text font__museoSlab font__weight-700 text__align-center" data-test-info-type="price">
             {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
                 {{> components/products/price price=price}}
             {{else}}

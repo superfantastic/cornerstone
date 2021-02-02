@@ -1,0 +1,133 @@
+// Overrides
+// -----------------------------------------------------------------------------
+
+.previewCart
+{
+    padding: 3rem;
+}
+
+.previewCart::before, .previewCart::after
+{
+    display: none;
+}
+
+.previewCartCheckout
+{
+    padding: 0;
+    background-color: transparent;
+}
+
+
+
+// SF - Preview Cart Grid
+// -----------------------------------------------------------------------------
+
+.sf-previewCart
+{
+    margin-bottom: 4rem;
+    
+    @include breakpoint("small") {
+        display: grid;
+        grid-gap: 4rem;
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+        
+        .sf-previewCartCheckout
+        {
+            order: 2;
+        }
+    }
+    
+    @include breakpoint("medium") {
+        grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+    }
+    
+    .sf-previewCartCheckout
+    {
+        text-align: center;
+    }
+    
+    .productView-image
+    {
+        margin-bottom: 4rem;
+    }
+}
+
+
+
+// SF - Preview Cart List
+// -----------------------------------------------------------------------------
+
+.sf-previewCartList
+{
+    .sf-previewCartList__item
+    {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0;
+        padding: 2rem 0;
+        border: none;
+        border-bottom: 1px solid stencilColor("color-greyLighter");
+        
+        &:first-child
+        {
+            padding-top: 0;
+        }
+        
+        &:last-child
+        {
+            margin-bottom: 2rem;
+        }
+    }
+    
+    .sf-previewCartList__item-image
+    {
+        flex: 0 0 80px;
+        margin-right: 2rem;
+        
+        img
+        {
+            margin: 0;
+        }
+    }
+    
+    .sf-previewCartList__item-name
+    {
+        margin: 0;
+        font-family: stencilString("body-font");
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        
+        a
+        {
+            text-decoration: none;
+        }
+    }
+    
+    .sf-previewCartList__item-price
+    {
+        font-family: stencilString("body-font");
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+}
+
+.sf-previewCartAction
+{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-gap: 2rem;
+    
+    > div,
+    .button
+    {
+        width: 100%;
+    }
+}
+
+.sf-previewCart-emptyBody
+{
+    font-size: 1.6rem;
+    text-align: center;
+}

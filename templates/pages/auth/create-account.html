@@ -1,13 +1,15 @@
 {{inject 'passwordRequirements' settings.password_requirements}}
 {{#partial "page"}}
-    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-    <h1 class="page-heading">{{lang 'create_account.heading' }}</h1>
-
+    <h1 class="text__align-center text__transform-uppercase text__size-17 text__lineHeight-1">{{lang 'create_account.heading' }}</h1>
+    <hr class="sf-separator sf-separator__dotted sf-separator__dotted-large" />
+    
     <div class="account account--fixed">
         <div class="account-body">
+
             {{#if forms.create_account.error}}
                 {{> components/common/alert/alert-error forms.create_account.error}}
             {{/if}}
+            
             {{#if settings.account_creation_enabled}}
                 <form action="{{urls.auth.save_new_account}}" data-create-account-form method="post" class="form">
                     <div class="form-row form-row--half">
@@ -26,6 +28,7 @@
                     </div>
                 </form>
             {{/if}}
+            
         </div>
     </div>
 {{/partial}}

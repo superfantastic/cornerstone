@@ -1,3 +1,14 @@
+{{#if theme_settings.social_icon_placement_top }}
+    <div class="container container__size-s">
+        <div class="sf-social__followShare p__size-10">
+            <div class="sf-deco__banner">
+                {{lang 'social.follow_share'}}
+            </div>
+            {{> extract/components/common/social-links-footer}}
+        </div>
+    </div>
+{{/if}}
+
 {{#if banners.bottom}}
     {{#if settings.data_tag_enabled}}
         <div class="banners" data-banner-location="bottom">
@@ -16,90 +27,79 @@
             </div>
         </div>
     {{/if}}
-
 {{/if}}
+
 <footer class="footer" role="contentinfo">
-    <h2 class="footer-title-sr-only">{{lang 'footer.title'}}</h2>
     <div class="container">
-        {{#if theme_settings.social_icon_placement_bottom '!==' 'bottom_none'}}
-            <article class="footer-info-col
-                footer-info-col--social
-                footer-info-col--{{#if theme_settings.social_icon_placement_bottom '===' 'bottom_left'}}left{{else}}right{{/if}}"
-                data-section-type="footer-webPages">
-                    <h3 class="footer-info-heading">{{lang 'social.connect'}}</h3>
-                    {{> components/common/social-links}}
-            </article>
-        {{/if}}
-        <section class="footer-info">
-            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
-                <h3 class="footer-info-heading">{{lang 'footer.navigate'}}</h3>
-                <ul class="footer-info-list">
-                    {{#each pages}}
-                        <li>
-                            <a href="{{url}}">{{name}}</a>
-                        </li>
-                    {{/each}}
-                    <li>
-                        <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
-                    </li>
-                </ul>
-            </article>
-
-            <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
-                <h3 class="footer-info-heading">{{lang 'footer.categories'}}</h3>
-                <ul class="footer-info-list">
-                    {{#each categories}}
-                        <li>
-                            <a href="{{url}}">{{name}}</a>
-                        </li>
-                    {{/each}}
-                </ul>
-            </article>
-
-            {{#and theme_settings.shop_by_brand_show_footer shop_by_brand.length}}
-            <article class="footer-info-col footer-info-col--small" data-section-type="footer-brands">
-                <h3 class="footer-info-heading">{{lang 'footer.brands'}}</h3>
-                <ul class="footer-info-list">
-                    {{#each shop_by_brand}}
-                        <li>
-                            <a href="{{url}}">{{name}}</a>
-                        </li>
-                    {{/each}}
-                    <li><a href="{{urls.brands}}">{{lang 'common.view_all'}}</a></li>
-                </ul>
-            </article>
-            {{/and}}
-
-            {{#if settings.address}}
-            <article class="footer-info-col footer-info-col--small" data-section-type="storeInfo">
-                <h3 class="footer-info-heading">{{lang 'footer.info'}}</h3>
-                <address>{{nl2br settings.address}}</address>
-                {{#if settings.phone_number}}
-                    <strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong>
-                {{/if}}
-            </article>
-            {{/if}}
-
-            <article class="footer-info-col" data-section-type="newsletterSubscription">
-                {{#if settings.show_newsletter_box}}
-                    {{> components/common/subscription-form}}
-                {{/if}}
-                {{> components/common/payment-icons}}
-            </article>
+        <section class="sf-footerInfo">
+            <div class="sf-footerInfo__columns">
+                <article class="sf-footerInfo__column">
+                    <h3 class="sf-footerInfo__heading"><a href="/shop">{{lang 'common.nav.shop'}}</a></h3>
+                    
+                    <ul class="sf-footerInfo__links sf-blankList">
+                        <li><a href="">{{lang 'common.nav.coffee'}}</a></li>
+                        <li><a href="">{{lang 'common.nav.gear'}}</a></li>
+                        <li><a href="">{{lang 'common.nav.gifts'}}</a></li>
+                        <li><a href="">{{lang 'common.nav.tea'}}</a></li>
+                        <li><a href="">{{lang 'common.nav.hot_chocolate'}}</a></li>
+                        <li><a href="">{{lang 'common.nav.ask_the_prof'}}</a></li>
+                    </ul>
+                </article>
+                
+                <article class="sf-footerInfo__column">
+                    <h3 class="sf-footerInfo__heading"><a href="/subscribe">{{lang 'common.nav.subscribe'}}</a></h3>
+                    
+                    <ul class="sf-footerInfo__links sf-blankList">
+                        <li><a href="">{{lang 'common.nav.personal'}}</a></li>
+                        <li><a href="">{{lang 'common.nav.gifts'}}</a></li>
+                        <li><a href="">{{lang 'common.nav.office'}}</a></li>
+                    </ul>
+                </article>
+                
+                <article class="sf-footerInfo__column">
+                    <h3 class="sf-footerInfo__heading"><a href="/explore">{{lang 'common.nav.explore'}}</a></h3>
+                    
+                    <ul class="sf-footerInfo__links sf-blankList">
+                        <li><a href="">{{lang 'common.nav.behind_roastery_doors'}}</a></li>
+                        <li><a href="">{{lang 'common.nav.roastery_journal'}}</a></li>
+                        <li><a href="">{{lang 'common.nav.brew_guides'}}</a></li>
+                        <li><a href="">{{lang 'common.nav.sustainability'}}</a></li>
+                        <li><a href="">{{lang 'common.nav.where_to_drink'}}</a></li>
+                        <li><a href="">{{lang 'common.nav.wholesale'}}</a></li>
+                    </ul>
+                </article>
+            </div>
+            
+            <div class="sf-footerInfo__extra">
+                <a href="/make-coffee-better"><svg width="268" height="268"><use xlink:href="#icon-sf_make-coffee-better-white" /></svg><span class="visuallyHidden">{{lang 'header.make_coffee_better'}}</span></a></a>
+            </div>
         </section>
-        {{#if theme_settings.geotrust_ssl_common_name}}
-            <div class="footer-geotrust-ssl-seal">
-                {{> components/common/geotrust-ssl-seal}}
-            </div>
-        {{/if}}
-        {{#if theme_settings.show_powered_by}}
-            <div class="footer-copyright">
-                <p class="powered-by">Powered by <a href="https://www.bigcommerce.com?utm_source=merchant&amp;utm_medium=poweredbyBC" rel="nofollow">BigCommerce</a></p>
-            </div>
-        {{/if}}
+
+        <hr class="sf-separator sf-separator__dotted sf-separator__dotted-small sf-separator__colour-white" />
+        
+        <ul class="sf-footerLogos sf-blankList">
+            <li><a href=""><img src="{{cdn 'assets/img/sf_logo-profit-for-purpose.svg'}}" alt="Profit for Purpose" /></a></li>
+            <li><a href=""><img src="{{cdn 'assets/img/sf_logo-direct-impact.svg'}}" alt="Direct Impact" /></a></li>
+            <li><a href=""><img src="{{cdn 'assets/img/sf_logo-grounds-up.svg'}}" alt="Grounds Up" /></a></li>
+            <li><a href=""><img src="{{cdn 'assets/img/sf_logo-rsa.svg'}}" alt="Sustainable Restaurant Association" /></a></li>
+            <li><a href=""><img src="{{cdn 'assets/img/sf_logo-soil-asc.svg'}}" alt="Soil Association" /></a></li>
+        </ul>
+
+        <hr class="sf-separator sf-separator__dotted sf-separator__dotted-small sf-separator__colour-white" />
+        
         {{#if theme_settings.show_copyright_footer}}
-            <div class="footer-copyright">
-                <p class="powered-by">&copy; {{moment format="YYYY"}} {{settings.store_name}} </p>
+            <div class="sf-footer__copyright">
+                <div>
+                    <nav class="mb__size-1">
+                        <ul class="sf-blankList sf-inlineList sf-inlineList__alignment-left sf-inlineList__alignment-center_small sf-inlineList__spacing-6">
+                            <li><a href="/privacy">{{lang 'common.nav.privacy'}}</a></li>
+                            <li><a href="/cookies">{{lang 'common.nav.cookies'}}</a></li>
+                            <li><a href="/contact">{{lang 'common.nav.contact'}}</a></li>
+                        </ul>
+                    </nav>
+                    <p class="text__lineHeight-8">&copy; {{settings.store_name}} {{moment format="YYYY"}}</p>
+                </div>
+                <p class="text__lineHeight-8">Website by <a href="https://wearesuperfantastic.com">Superfantastic</a></p>
             </div>
         {{/if}}
     </div>

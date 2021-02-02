@@ -1,5 +1,6 @@
 {{#if customer.inbox.orders}}
-    <h2>{{lang 'forms.inbox.send_message'}}</h2>
+    <h3 class="text__size-8 text__lineHeight-1 m__top-none m__size-4">{{lang 'forms.inbox.send_message'}}</h3>
+
     <form class="form" data-inbox-form action="{{urls.account.send_message}}" method="post">
         {{inject 'enterOrderNum' (lang 'forms.validate.account.inbox.order')}}
         {{inject 'enterSubject' (lang 'forms.validate.account.inbox.subject')}}

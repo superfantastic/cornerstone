@@ -20,7 +20,7 @@
 }
 
 .optimizedCheckout-header {
-    background-color: stencilColor("optimizedCheckout-header-backgroundColor");
+    background-color: white;
     // scss-lint:disable StringQuotes
     background-image: url(stencilImage('optimizedCheckout-backgroundImage', 'optimizedCheckout-backgroundImage-size'));
     // scss-lint:enable StringQuotes
@@ -32,7 +32,7 @@
     // TODO:
     // Configure media query to be 'desktop' breakpoint size
     // -----------------------------------------------------------------------------
-    @media (min-width: 801px) {
+    @media (min-width: 968px) {
         text-align: stencilString("optimizedCheckout-logo-position");
     }
 }
@@ -378,4 +378,502 @@ $optimizedCheckout-input--error-boxShadow: 0 0 3px transparentize(stencilColor("
 .optimizedCheckout-loadingToaster {
     background-color: stencilColor("optimizedCheckout-loadingToaster-backgroundColor");
     color: stencilColor("optimizedCheckout-loadingToaster-textColor");
+}
+
+
+// Overrides - Typography
+// -----------------------------------------------------------------------------
+
+*, *:before, *:after
+{
+    box-sizing: inherit;
+}
+
+html
+{
+    box-sizing: border-box;
+    font-size: 62.5% !important;
+}
+
+body
+{
+    font-size: 16px;
+    font-size: 1.6rem;
+}
+
+h2,h3,h4,h5,h6
+{
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+}
+
+h2
+{
+    font-size: 2.8rem;
+}
+
+h3
+{
+    font-size: 2.2rem;
+}
+
+ul, ol, p
+{
+    font-size: 1.6rem;
+}
+
+a
+{
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+    color: stencilColor("color-black");
+    transition: all 0.3s ease;
+    
+    &:hover
+    {
+        text-decoration: none;
+        color: stencilColor("color-sf-warmGrey");
+    }
+}
+
+#consent-manager-update-banner
+{
+    display: none;
+}
+
+
+
+// Overrides - Layouts
+// -----------------------------------------------------------------------------
+
+.layout
+{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+    padding: 0 2rem;
+    padding-bottom: 6rem;
+    width: 100%;
+    max-width: 1240px;
+
+    @media (min-width: 968px) {
+        padding-bottom: 3rem;
+    }
+}
+
+.layout-main
+{
+    padding: 0;
+}
+
+.checkoutHeader-content
+{
+    padding: 3rem 5rem;
+    max-width: 100%;
+}
+
+
+
+// Overrides - Header
+// -----------------------------------------------------------------------------
+
+.checkoutHeader
+{
+    border-bottom: 5px solid stencilColor("color-black");
+}
+
+.checkoutHeader-link
+{
+    display: inline-block;
+    max-width: 150px;
+}
+
+
+
+// Overrides - Summary
+// -----------------------------------------------------------------------------
+
+.optimizedCheckout-orderSummary
+{
+    padding: 1rem;
+    border: none;
+
+    @media (min-width: 968px) {
+        box-shadow: 0px 0px 0 1px rgba(29, 29, 27, 0.05), 6px 6px 0 0 rgba(29, 29, 27, 0.2);
+    }
+}
+
+.modal-header-title
+{
+    font-size: 2rem;
+}
+
+.cart-section-heading
+{
+    font-size: 1.4rem;
+}
+
+.product-title
+{
+    margin: 0;
+    font-family: stencilString("body-font");
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.product-options
+{
+    font-size: 1.3rem;
+}
+
+.cart-priceItem--total .cart-priceItem-label
+{
+    font-size: 1.6rem;
+}
+
+
+
+// Overrides - Steps
+// -----------------------------------------------------------------------------
+
+.optimizedCheckout-step
+{
+    background-color: stencilColor("color-black");
+}
+
+.stepHeader
+{
+    text-decoration: none;
+
+    .stepHeader-body
+    {
+        margin-top: 0.2rem;
+    }
+}
+
+.stepHeader-counter
+{
+    position: relative;
+    width: 30px;
+    height: 30px;
+
+    &::before
+    {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: initial;
+        height: initial;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.customerEmail-action
+{
+    margin-top: 2.6rem;
+}
+
+
+
+// Overrides - Forms
+// -----------------------------------------------------------------------------
+
+.optimizedCheckout-form-label,
+.form-legend
+{
+    font-family: stencilString("body-font");
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: stencilColor("color-black");
+    
+    small
+    {
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-transform: none;
+        color: stencilColor("color-greyMedium");
+    }
+
+    @media (min-width: 968px) {
+        font-size: 1.5rem;
+    }
+}
+
+.optimizedCheckout-form-input
+{
+    margin: 0;
+    padding: 0.8rem;
+    height: auto;
+    font-family: stencilString("body-font");
+    font-size: 1.2rem;
+    color: stencilColor("color-black");
+    border: 2px solid stencilColor("color-black");
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    
+    &:hover
+    {
+        background-color: rgba(stencilColor("color-sf-warmGrey"), 0.05);
+    }
+    
+    &:focus
+    {
+        border-color: stencilColor("color-sf-warmGrey");
+        outline: none;
+    }
+
+    @media (min-width: 968px) {
+        font-size: 1.4rem;
+        padding: 1.1rem;
+    }
+}
+
+.optimizedCheckout-form-select
+{
+    margin: 0;
+    padding: 0.8rem;
+    height: auto;
+    font-family: stencilString("body-font");
+    font-size: 1.2rem;
+    color: stencilColor("color-black");
+    background: transparent url(../img/sf_form-arrow.svg) no-repeat calc(100% - 18px) center;
+    border: 2px solid stencilColor("color-black");
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    appearance: none !important;
+    
+    &:hover
+    {
+        background-color: rgba(stencilColor("color-sf-warmGrey"), 0.05);
+    }
+    
+    &:focus
+    {
+        border-color: stencilColor("color-sf-warmGrey");
+        outline: none !important;
+    }
+
+    @media (min-width: 968px) {
+        font-size: 1.4rem;
+        padding: 1.1rem;
+    }
+}
+
+.form-checkbox + .form-label,
+.form-radio + .form-label
+{
+    padding-left: 2.5rem;
+    font-family: stencilString("body-font");
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: stencilColor("color-black");
+}
+
+.form-checkbox + .form-label::before
+{
+    display: inline-block;
+    content: '';
+    height: 20px;
+    width: 20px;
+    border: 2px solid stencilColor("color-black");
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.form-label:hover::before
+{
+    border-color: stencilColor("color-sf-warmGrey");
+}
+
+.form-checkbox:checked + .form-label::before
+{
+    border-color: stencilColor("color-black");
+    background-color: stencilColor("color-black");
+}
+
+.form-checkbox + .form-label::after
+{
+    position: absolute;
+    left: 5px;
+    top: 7px;
+    display: inline-block;
+    content: '';
+    height: 5px;
+    width: 10px;
+    background: none !important;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: rotate(-45deg) !important;
+}
+
+
+
+
+.form-radio + .form-label::before
+{
+
+}
+
+.form-radio:checked + .form-label::before
+{
+    
+}
+
+.form-field-password
+{
+    margin-bottom: 1rem;
+}
+
+
+
+// SF - Button (Overrides)
+// -----------------------------------------------------------------------------
+
+.button
+{
+    display: inline-block;
+    padding: 1.2rem 1.6rem;
+    min-height: 43px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    line-height: 1.1;
+    border-radius: 3px;
+
+    &.button--tiny
+    {
+        padding: 0.7rem 1.2rem;
+        font-size: 1.3rem;
+    }
+}
+
+.dropdown-button
+{
+    letter-spacing: 0;
+}
+
+
+
+// SF - Button Variations (Overrides)
+// -----------------------------------------------------------------------------
+
+.button--primary,
+.button--action
+{
+    color: white;
+    border-color: stencilColor("color-black");
+    background-color: stencilColor("color-black");
+    
+    &:hover,
+    &:active
+    {
+        color: white;
+        border-color: stencilColor("color-sf-warmGrey");
+        background-color: stencilColor("color-sf-warmGrey");
+    }
+}
+
+.button--tertiary,
+.optimizedCheckout-buttonSecondary
+{
+    color: stencilColor("color-black");
+    border-color: stencilColor("color-black");
+    background-color: white;
+    box-shadow: inset 0 0 0 2px stencilColor("color-black");
+    
+    &:hover,
+    &:active
+    {
+        color: stencilColor("color-black");
+        border-color: stencilColor("color-sf-warmGrey");
+        background-color: white;
+        box-shadow: inset 0 0 0 2px stencilColor("color-sf-warmGrey");
+    }
+
+    &.button--tiny
+    {
+        box-shadow: inset 0 0 0 2px stencilColor("color-black");
+
+        &:hover,
+        &:active
+        {
+            box-shadow: inset 0 0 0 2px stencilColor("color-sf-warmGrey");
+        }
+    }
+}
+
+
+
+// SF - Shipping Method
+// -----------------------------------------------------------------------------
+
+.form-checklist-checkbox:checked ~ .form-label::after
+{
+    background-color: stencilColor("color-black");
+}
+
+.optimizedCheckout-form-checklist-checkbox:checked ~ .form-label::after
+{
+    background-color: stencilColor("color-black");
+}
+
+.form-checklist-checkbox:checked ~ .form-label::before
+{
+    border-color: stencilColor("color-black");
+}
+
+.optimizedCheckout-form-checklist-checkbox:checked ~ .form-label::before
+{
+    border-color: stencilColor("color-black");
+}
+
+.shippingOption-figure, 
+.shippingOption-desc, 
+.shippingOption-price
+{
+    font-size: 1.2rem;
+}
+
+
+
+// SF - Payment
+// -----------------------------------------------------------------------------
+
+.form-input.has-icon + .icon,
+.has-icon.widget--stripev3 + .icon
+{
+    @media (min-width: 968px) {
+        height: 4rem;
+    }
+}
+
+.form-field--ccNumber,
+.form-field--ccName
+{
+    flex-basis: 63%;
+
+    @media (min-width: 968px) {
+        flex-basis: 65%;
+    }
+}
+
+.form-field--ccExpiry,
+.form-ccFields-field--ccCvv
+{
+    flex-basis: 37%;
+
+    @media (min-width: 968px) {
+        flex-basis: 35%;
+    }
+}
+
+.has-tip
+{
+    position: relative;
+    top: -2px;
 }

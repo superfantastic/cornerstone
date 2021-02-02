@@ -1,10 +1,15 @@
 {{#partial "page"}}
-<div class="account">
 
-    {{#if wishlist.is_editable}}
-        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-    {{/if}}
-    <h2 class="page-heading">{{lang 'account.wishlists.view_heading' name=wishlist.name}}</h2>
+<div class="account">
+    
+    <header>
+        <hgroup>
+            <h1 class="text__align-center text__transform-uppercase text__size-17 text__lineHeight-1 m__bottom-none">{{lang 'account.breadcrumb'}}</h1>
+            <h2 class="text__align-center text__transform-uppercase text__size-11 text__lineHeight-1 m__top-none">{{lang 'account.wishlists.view_heading' name=wishlist.name}}</h2>
+        </hgroup>
+    </header>
+    <hr class="sf-separator sf-separator__dotted sf-separator__dotted-large" />
+    
     {{#if wishlist.is_editable}}
         {{> components/account/navigation account_page='wishlists'}}
     {{/if}}
@@ -19,7 +24,7 @@
             </div>
         {{/if}}
     {{/if}}
-
+    
     {{#if wishlist.items}}
         {{> components/account/wishlist-item-list show_remove=wishlist.is_editable}}
     {{else}}
@@ -27,5 +32,6 @@
     {{/if}}
 
 </div>
+
 {{/partial}}
 {{> layout/base}}

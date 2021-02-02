@@ -1,0 +1,41 @@
+// SF - Product Filter
+// -----------------------------------------------------------------------------
+
+.sf-productFilter
+{
+    display: none;
+    padding: 4rem;
+    background-color: stencilColor("color-sf-lightBrown");
+    border-radius: 3px;
+    
+    &.open
+    {
+        display: block;
+    }
+}
+
+.sf-productFilter__grid
+{
+    display: grid;
+    grid-gap: 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.sf-productFilter__links
+{
+    li
+    {
+        margin-bottom: 0.5rem;
+        
+        &:last-child
+        {
+            margin-bottom: 0;
+        }
+    }
+    
+    a
+    {
+        font-size: 1.4rem;
+        text-decoration: none;
+    }
+}

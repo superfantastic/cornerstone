@@ -1,18 +1,29 @@
 {{#partial "page"}}
-    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-    <h2 class="page-heading">{{lang 'account.addresses.heading' }}</h2>
-    {{> components/account/navigation account_page='addresses'}}
 
-    <div class="account account--fixedLarge">
-        <div class="account-body">
-            {{#if customer.error}}
-                {{>components/common/alert/alert-error customer.error}}
-            {{/if}}
-            {{#if customer.success}}
-                {{>components/common/alert/alert-success customer.success}}
-            {{/if}}
-            {{> components/account/address-list }}
-        </div>
+<!-- {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}} -->
+
+<header>
+    <hgroup>
+        <h1 class="text__align-center text__transform-uppercase text__size-17 text__lineHeight-1 m__bottom-none">{{lang 'account.breadcrumb'}}</h1>
+        <h2 class="text__align-center text__transform-uppercase text__size-11 text__lineHeight-1 m__top-none">{{lang 'account.addresses.heading' }}</h2>
+    </hgroup>
+</header>
+<hr class="sf-separator sf-separator__dotted sf-separator__dotted-large" />
+
+{{> components/account/navigation account_page='addresses'}}
+
+<div class="account account--fixedLarge">
+    <div class="account-body">
+        {{#if customer.error}}
+            {{>components/common/alert/alert-error customer.error}}
+        {{/if}}
+        {{#if customer.success}}
+            {{>components/common/alert/alert-success customer.success}}
+        {{/if}}
+
+        {{> components/account/address-list }}
     </div>
+</div>
+
 {{/partial}}
 {{> layout/base}}

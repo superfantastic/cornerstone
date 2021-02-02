@@ -1,0 +1,59 @@
+// SF - Separators
+// -----------------------------------------------------------------------------
+
+.sf-separator
+{
+    margin: 4rem 0;
+    border: none;
+    border-width: 0;
+}
+
+.sf-separator__dotted
+{
+    border-top-width: 3px;
+    border-top-style: dotted;
+    border-top-color: stencilColor("color-black");
+    
+    &.sf-separator__dotted-large
+    {
+        border-top-width: 12px;
+        border-image: url(../img/sf_separator-dotted-frame-large.svg) 12 round;
+    }
+    
+    &.sf-separator__dotted-small
+    {
+        border-top-width: 4px;
+        border-image: url(../img/sf_separator-dotted-frame-small.svg) 4 round;
+    }
+
+    &.sf-separator__colour-white
+    {
+        border-top-color: white;
+
+        &.sf-separator__dotted-large
+        {
+            border-image: url(../img/sf_separator-dotted-frame-large-white.svg) 12 round;
+        }
+
+        &.sf-separator__dotted-small
+        {
+            border-image: url(../img/sf_separator-dotted-frame-small-white.svg) 4 round;
+        }
+    }
+}
+
+.sf-separator__line
+{
+    border-top-style: solid;
+    border-top-color: stencilColor("color-black");
+    
+    &.sf-separator__line-large
+    {
+        border-width: 5px;
+    }
+    
+    &.sf-separator__line-small
+    {
+        border-width: 2px;
+    }
+}

@@ -1,25 +1,19 @@
-<h3 class="account-heading">{{lang 'account.messages.heading' }}</h3>
-
-<ul class="account-list">
+<ul class="sf-accountOrdersList sf-blankList mb__size-12">
     {{#each messages}}
-    <li class="account-listItem">
-        <div class="account-message">
-                <div class="account-orderStatus">
-                    <span>{{date}}</span>
-                </div>
-
-                <h5 class="account-product-title {{#unless unread}}is-read{{/unless}}">
-                    {{subject}}
-                </h5>
-                <p class="{{#unless unread}}is-read{{/unless}}">
+        <li class="sf-accountOrdersList__item">
+            <div class="sf-accountMessage {{#unless unread}}is-read{{/unless}}">
+                <div class="sf-accountProduct__orderStatus"><b>{{date}}</b></div>
+                <h5 class="sf-accountMessage__title">{{subject}}</h5>
+                <p class="m__bottom-none">
                     {{#if is_reply}}
                         {{lang 'account.messages.merchant_said' store_name=../../settings.store_name}}
                     {{else}}
                         {{lang 'account.messages.customer_said'}}
                     {{/if}}
+
                     {{message}}
                 </p>
-        </div>
-    </li>
+            </div>
+        </li>
     {{/each}}
 </ul>

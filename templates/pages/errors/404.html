@@ -1,13 +1,11 @@
 {{#partial "page"}}
 
-{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-
 <main class="page">
+    <h1 class="text__align-center text__transform-uppercase text__size-17 text__lineHeight-1">{{lang 'page_not_found.page_heading'}}</h1>
+    <hr class="sf-separator sf-separator__dotted sf-separator__dotted-large" />
+
     <section class="page-content page-content--centered">
-        <h1 class="page-heading">{{lang 'page_not_found.page_heading'}}</h1>
-        <p class="u-textAlignCenter">
-            {{lang 'page_not_found.message'}}
-        </p>
+        <p class="text__align-center text__size-4 mb__size-8">{{lang 'page_not_found.message'}}</p>
 
         {{> components/common/search-box}}
     </section>

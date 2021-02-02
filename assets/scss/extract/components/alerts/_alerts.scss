@@ -1,0 +1,53 @@
+// =============================================================================
+// ALERTS
+// =============================================================================
+
+.alertBox {
+    // position: fixed;
+    // left: 0;
+    // top: 0;
+    padding: spacing("single");
+    width: 100%;
+    color: stencilColor("alert-color");
+    z-index: 9000;
+}
+
+.alertBox-icon {
+    .icon {
+        @include square(25px);
+    }
+}
+
+.alertBox--info {
+    color: stencilColor("alert-color-alt");
+
+    .alertBox-close {
+
+        // scss-lint:disable SelectorDepth, NestingDepth
+        svg {
+            fill: $color-infoLight;
+        }
+    }
+}
+
+.alertBox-message,
+.alertBox--storeCredit
+{
+    font-family: stencilString("body-font");
+    font-size: 1.4rem;
+}
+
+
+
+// =============================================================================
+// SF - Alert Box Close Button
+
+.sf-alertBox-close
+{
+    position: absolute;
+    right: spacing("single");
+    top: 50%;
+    padding: spacing("half");
+    line-height: 0;
+    transform: translateY(-50%);
+}

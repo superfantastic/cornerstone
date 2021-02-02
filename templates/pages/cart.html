@@ -2,18 +2,20 @@
 cart: true
 ---
 {{#partial "page"}}
-<div class="page">
-
-    <main class="page-content" data-cart>
-        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-
-        {{> components/cart/page-title}}
-
+    <main data-cart>
         <div data-cart-status>
             {{> components/cart/status-messages}}
         </div>
-
+        
         {{#if cart.items.length}}
+            <header>
+                <hgroup>
+                    <h1 class="text__align-center text__transform-uppercase text__size-17 text__lineHeight-1 m__bottom-none">{{lang 'cart.label'}}</h1>
+                    {{> components/cart/page-title}}
+                </hgroup>
+            </header>
+            <hr class="sf-separator sf-separator__dotted sf-separator__dotted-large" />
+        
             <div class="loadingOverlay"></div>
 
             <div data-cart-content>
@@ -47,10 +49,12 @@ cart: true
                 </div>
             {{/if}}
         {{else}}
-            <h3>{{lang 'cart.checkout.empty_cart'}}</h3>
+            <h1 class="text__align-center text__transform-uppercase text__size-15 text__lineHeight-1">404 - Beans not found</h1>
+            <hr class="sf-separator sf-separator__dotted sf-separator__dotted-large" />
+            
+            <p class="p__size-15 text__align-center text__size-8">{{lang 'cart.checkout.empty_cart'}}</p>
         {{/if}}
 
     </main>
-</div>
 {{/partial}}
 {{> layout/base}}

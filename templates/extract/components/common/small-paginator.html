@@ -1,0 +1,25 @@
+<ul class="sf-paginationSmall sf-blankList">
+    {{#if previous}}
+        <li class="sf-paginationSmall__previous">
+            <a class="button button--extraSmall" href="{{previous}}">
+                <i class="icon" aria-hidden="true"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-left"></use></svg></i>
+                {{lang 'common.previous'}}
+            </a>
+        </li>
+    {{/if}}
+    
+    {{#if this.links.length}}
+        <li class="sf-paginationSmall__status">{{lang 'common.paginator.page_of' current=this.current total=this.links.length}}</li>
+    {{else}}
+        <li class="sf-paginationSmall__status">{{lang 'common.paginator.page_of' current=1 total=1}}</li>
+    {{/if}}
+
+    {{#if next}}
+        <li class="sf-paginationSmall__next">
+            <a class="button button--extraSmall" href="{{next}}">
+                {{lang 'common.next'}}
+                <i class="icon" aria-hidden="true"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-right"></use></svg></i>
+            </a>
+        </li>
+    {{/if}}
+</ul>

@@ -3,9 +3,12 @@ category:
     shop_by_price: true
     products:
         limit: {{theme_settings.categorypage_products_per_page}}
+categories: true
 ---
+
 {{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
 {{inject "categoryId" category.id}}
+
 {{#partial "head"}}
     {{#if pagination.category.previous}}
         <link rel="prev" href="{{pagination.category.previous}}">
@@ -16,43 +19,43 @@ category:
 {{/partial}}
 
 {{#partial "page"}}
+    {{#if category.image}}
+        {{> components/common/responsive-img
+            image=category.image
+            fallback_size=theme_settings.zoom_size
+            lazyload=theme_settings.lazyload_mode
+            class="category-header-image"
+        }}
+    {{/if}}
 
-{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-{{#if category.image}}
-    {{> components/common/responsive-img
-        image=category.image
-        fallback_size=theme_settings.zoom_size
-        lazyload=theme_settings.lazyload_mode
-        class="category-header-image"
-    }}
-{{/if}}
-{{#unless theme_settings.hide_category_page_heading }}
-    <h1 class="page-heading">{{category.name}}</h1>
-    {{{region name="category_below_header"}}}
-{{/unless}}
-{{{category.description}}}
-<div class="page">
+    {{#unless theme_settings.hide_category_page_heading }}
+        <h1 class="text__align-center text__transform-uppercase text__size-17 text__lineHeight-1">{{category.name}}</h1>
+        <hr class="sf-separator sf-separator__dotted sf-separator__dotted-large" />
+        {{{region name="category_below_header"}}}
+    {{/unless}}
+    
+    {{{category.description}}}
+    
     {{#if category.faceted_search_enabled}}
-        <aside class="page-sidebar" id="faceted-search-container">
+        <aside class="m__size-10 m__top-none" id="faceted-search-container">
             {{> components/category/sidebar}}
         </aside>
     {{else if category.subcategories}}
-        <aside class="page-sidebar" id="faceted-search-container">
+        <aside class="m__size-10 m__top-none" id="faceted-search-container">
             {{> components/category/sidebar}}
         </aside>
     {{else if category.shop_by_price}}
         {{#if theme_settings.shop_by_price_visibility}}
-             <aside class="page-sidebar" id="faceted-search-container">
+             <aside class="m__size-8 m__top-none" id="faceted-search-container">
                 {{> components/category/sidebar}}
             </aside>
         {{/if}}
     {{/if}}
-
-    <main class="page-content" id="product-listing-container">
+    
+    <main id="product-listing-container">
         {{> components/category/product-listing}}
         {{{region name="category_below_content"}}}
     </main>
-</div>
-
 {{/partial}}
+
 {{> layout/base}}

@@ -1,7 +1,15 @@
 {{#partial "page"}}
+
+<header>
+    <hgroup>
+        <h1 class="text__align-center text__transform-uppercase text__size-17 text__lineHeight-1 m__bottom-none">{{lang 'account.breadcrumb'}}</h1>
+        <h2 class="text__align-center text__transform-uppercase text__size-11 text__lineHeight-1 m__top-none">{{lang 'account.recent_items.heading' }}</h2>
+    </hgroup>
+</header>
+<hr class="sf-separator sf-separator__dotted sf-separator__dotted-large" />
+
 <div class="account">
-    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-    <h2 class="page-heading">{{lang 'account.recent_items.heading' }}</h2>
+    
     {{> components/account/navigation account_page='recent_items'}}
 
     {{#unless customer.recently_viewed_products.items}}
@@ -12,5 +20,6 @@
         {{> components/products/grid products=customer.recently_viewed_products.items show_compare=customer.recently_viewed_products.show_compare}}
     </form>
 </div>
+
 {{/partial}}
 {{> layout/base}}

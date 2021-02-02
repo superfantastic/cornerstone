@@ -1,0 +1,27 @@
+// Overrides
+// -----------------------------------------------------------------------------
+
+.card
+{
+    margin-bottom: 0;
+}
+
+.card-img-container::after
+{
+    padding-bottom: 100%;
+}
+
+.card-body
+{
+    margin-top: 2rem;
+    
+    .card-text
+    {
+        color: stencilColor("color-black");
+    }
+}
+
+.card-title > a:hover
+{
+    color: stencilColor("color-sf-warmGrey");
+}

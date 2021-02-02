@@ -1,0 +1,122 @@
+// SF - Posts Grid
+// -----------------------------------------------------------------------------
+
+.sf-posts__grid
+{
+    display: grid;
+    grid-gap: 4rem;
+    
+    @include breakpoint("small") {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    @include breakpoint("medium") {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    }
+}
+
+
+
+// SF - Posts Tags
+// -----------------------------------------------------------------------------
+
+.sf-posts__tags
+{
+    text-align: center;
+
+    li
+    {
+        display: inline-block;
+        margin: 1rem;
+    }
+
+    a
+    {
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+}
+
+
+
+// SF - Posts Card
+// -----------------------------------------------------------------------------
+
+.sf-postCard
+{
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    max-width: 350px;
+}
+
+.sf-postCard__thumbnail
+{
+    margin: 0;
+    margin-bottom: 1.5rem;
+
+    img
+    {
+        border-radius: 3px;
+    }
+}
+
+.sf-postCard__header
+{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+
+    h1
+    {
+        margin: 0;
+        font-family: stencilString("headings-font");
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05rem;
+        line-height: 1.2;
+        order: 2;
+
+        a
+        {
+            text-decoration: none;
+
+            &:hover
+            {
+                color: stencilColor("color-sf-warmGrey");
+            }
+        }
+    }
+
+    time
+    {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 300;
+        order: 1;
+    }
+}
+
+.sf-postCard__summary
+{
+    font-size: 1.4rem;
+}
+
+
+
+// SF - Single Post
+// -----------------------------------------------------------------------------
+
+.sf-blogPost__image
+{
+    margin-bottom: 2.5rem;
+}
+
+.sf-blogPost__header
+{
+    margin-bottom: 4rem;
+
+    @include breakpoint("medium") {
+        margin-bottom: 6rem;
+    }
+}

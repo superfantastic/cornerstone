@@ -1,20 +1,51 @@
-<nav>
+<nav class="sf-productNavigation">
     {{#if category.subcategories}}
-        <div class="sidebarBlock">
-            <h2 class="sidebarBlock-heading">{{category.name}}</h2>
-            <ul class="navList">
-                {{#each category.subcategories}}
-                <li class="navList-item">
-                    <a class="navList-action" href="{{url}}" title="{{name}}">{{name}}</a>
+        <ul class="sf-productNavigation__links sf-blankList">
+            {{#each category.subcategories}}
+                {{#unless name '===' 'Filters'}}
+                    <li><a href="{{url}}" class="sf-productNavigation__button">{{name}}</a></li>
+                {{/unless}}
+            {{/each}}
+        </ul>
+        
+        <ul class="sf-productNavigation__additional sf-blankList">
+            <li class="sf-productNavigation__sort">
+                {{> components/products/filter sort=pagination.category.sort}}
+            </li>
+            
+            {{#if category.name '===' 'Coffee'}}
+                <li>
+                    <button class="sf-productNavigation__button sf-productNavigation__button-filter sf-js__productFilter" data-target="#coffeeFilters">
+                        <span>{{lang 'common.nav.filter'}}</span>
+                        <i aria-hidden="true" class="icon"><svg><use xlink:href="#icon-sf_form-arrow" /></svg></i>
+                    </button>
                 </li>
-                {{/each}}
-            </ul>
-        </div>
-    {{/if}}
-
-    {{#if category.faceted_search_enabled}}
-        {{> components/faceted-search/index category}}
-    {{else}}
-        {{> components/category/shop-by-price shop_by_price=category.shop_by_price category_url=category.url}}
+            {{/if}}
+        </ul>
     {{/if}}
 </nav>
+
+{{#if category.name '===' 'Coffee'}}
+    {{#each categories}}
+
+        {{#if this.name '===' 'Filters'}}
+            <nav class="sf-productFilter" id="coffeeFilters">
+                <ul class="sf-productFilter__grid sf-blankList">
+                    {{#each this.children}}
+                        <li>
+                            <svg width="56" height="71"><use xlink:href="#icon-sf_filter-{{snakecase this.name}}" /></svg>
+                            <div class="font__bebas text__transform-uppercase text__size-7 m__size-2">{{this.name}}</div>
+                            
+                            <ul class="sf-productFilter__links sf-blankList">
+                                {{#each this.children}}
+                                    <li><a href="{{this.url}}">{{this.name}}</a></li>
+                                {{/each}}
+                            </ul>
+                        </li>
+                    {{/each}}
+                </ul>
+            </nav>
+        {{/if}}
+
+    {{/each}}
+{{/if}}
